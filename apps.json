@@ -1,0 +1,36 @@
+{
+  "apps": [
+    {
+      "name": "mongo",
+      "script": "./bin/start-mongo",
+      "exec_interpreter": "bash",
+      "exec_mode": "fork_mode"
+    },
+    {
+      "name": "dashboard",
+      "script": "./packages/<app>/app.js",
+      "env": {
+        "MYENVVARIABLE": "<MYVALUE>"
+      }
+    },
+    {
+      "name": "users",
+      "script": "./packages/users/app.js"
+    },
+    {
+      "name": "release-service",
+      "script": "./packages/<app>/app.js"
+    },
+    {
+      "name": "indexer",
+      "script": "./packages/<cronapp>/app.js",
+      "cron_restart": "0 */1 * * *"
+    },
+    {
+      "name": "nginx",
+      "script": "./bin/start-nginx",
+      "exec_interpreter": "bash",
+      "exec_mode": "fork_mode"
+    }
+  ]
+}
